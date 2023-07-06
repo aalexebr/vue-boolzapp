@@ -214,7 +214,7 @@ Vue.createApp({
             
             for(let i=0; i<this.contacts.length; i++){
                 this.contacts[i].name.includes(this.searchChat)
-                if(!this.contacts[i].name.toLowerCase().includes(this.searchChat)){
+                if(!this.contacts[i].name.toLowerCase().includes(this.searchChat.toLowerCase())){
                     this.contacts[i].visible = false
                 }
                 else{
