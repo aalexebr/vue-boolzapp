@@ -33,7 +33,8 @@
                         </header>
                         <div class="chat-list">
                             <ul>
-                                <li v-for="(element, index) in contacts">
+                                <li v-for="(element, index) in contacts"
+                                @click="changeChat(index)">
                                     <div class="row">
                                         <div class="profile-pic">
                                             <img :src="element.avatar" alt="">
@@ -60,7 +61,7 @@
                         <header>
                             <div class="row">
                                 <div class="profile-pic">
-                                    <img src="" alt="">
+                                    <img :src="contacts[indexContacts].avatar" alt="">
                                 </div>
                                 <div class="chat-functions">
                                     X X X
@@ -68,9 +69,14 @@
                             </div>
                         </header>
                         <div class="chat-area">
-                            <ul>
-                                <li v-for="(element,index) in contacts[0].messages">
-                                    {{element.message}}
+                            <ul class="column">
+                                <li v-for="(element,index) in contacts[indexContacts].messages"
+                                :class="{'sent':element.status == 'sent',
+                                        'recieved':element.status == 'received'}">
+                                    <div class="chat-text">
+                                       {{element.message}} 
+                                    </div>
+                                    
                                 </li>
                             </ul>
                         </div>

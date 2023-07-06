@@ -1,7 +1,7 @@
 Vue.createApp({
     data(){
         return{
-            indexCounter: null,
+            indexContacts: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -168,7 +168,13 @@ Vue.createApp({
             
         }
     },
-    methods:{},
+    methods:{
+        changeChat(i){
+            console.log('couner', this.indexContacts)
+            this.indexContacts = i
+            console.log('click', i)
+        }
+    },
     created(){}
 }).mount('#app');
 
