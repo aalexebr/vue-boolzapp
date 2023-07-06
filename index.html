@@ -9,10 +9,55 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Boolzapp con Vue</title>
 </head>
-<body>
+<body class="debug">
     <div id="app">
         <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="column">
+                        <header>
+                            <div class="profile row">
+                                <div class="img">
+                                    profile pic
+                                    <img src="" alt="">
+                                </div>
+                                <div class="tools">
+                                    button
+                                </div>
+                            </div>
+                            <div class="notification">
+                                BELL ricevi mess
+                            </div>
+                            <div class="search-bar">
+                                SEARCHBAR
+                            </div>
+                        </header>
+                        <div class="chat-list">
+                            <ul>
+                                <li v-for="(element, index) in contacts">
+                                    <div class="row">
+                                        <div class="img">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="">
+                                            <div class="name">
 
+                                            </div>
+                                            <div class="last-message">
+
+                                            </div>
+                                        </div>
+                                        <div class="last-sent">
+                                            
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                     </div>   
+                </div>
+                <div class="col-7"></div>
+            </div>
         </div>
     </div>
     <script src="js/script.js" type="text/javascript"></script>
