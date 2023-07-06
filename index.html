@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <title>Boolzapp con Vue</title>
 </head>
 <body class="debug">
@@ -17,18 +20,45 @@
                     <div class="column">
                         <header>
                             <div class="profile row">
-                                <div class="profile-pic">                                  
-                                    <img :src="contacts[0].avatar" alt="">
+                                <div class="user row">
+                                    <div class="profile-pic">                                  
+                                        <img :src="contacts[0].avatar" alt="">
+                                        
+                                    </div>
+                                    <span class="user-name">
+                                        Nobody
+                                    </span>
                                 </div>
-                                <div class="tools">
-                                    button
+                                <div class="tools ">
+                                    <div class="row">
+                                        <div class="profile-functions">
+                                            <i class="fa-solid fa-circle-notch"></i>
+                                        </div>
+                                        <div class="profile-functions">
+                                            <i class="fa-solid fa-message"></i>
+                                        </div>
+                                        <div class="profile-functions">
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="notification">
-                                BELL ricevi mess
+                            <div class="notification row">
+                                <div class="alert">
+                                    <i class="fa-solid fa-bell-slash"></i>
+                                </div>
+                                <div class="alert-text">
+                                    <span>
+                                        Ricevi notifiche di nuovi messaggi
+                                    </span>
+                                    <a href="#/">
+                                        attiva notifiche desktop
+                                    </a>
+                                </div class="alert-text">
                             </div>
                             <div class="search-bar">
-                                SEARCHBAR
+                                <input type="text" placeholder="search in chat list">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </header>
                         <div class="chat-list">
@@ -85,9 +115,11 @@
                                 <div class="emoji">
                                     button
                                 </div>
-                                <input type="text" placeholder="type to chat">
+                                <input v-model="newChat" type="text" placeholder="type to chat">
                                 <div class="send">
-                                    button
+                                    <button @click="sendMessage();responseMessage()">
+                                        send
+                                    </button>
                                 </div>
                             </div>
                         </div>

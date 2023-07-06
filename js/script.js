@@ -1,6 +1,8 @@
 Vue.createApp({
     data(){
         return{
+            newChat : '',
+            responseMess :'ok',
             indexContacts: 0,
             contacts: [
                 {
@@ -173,9 +175,44 @@ Vue.createApp({
             console.log('couner', this.indexContacts)
             this.indexContacts = i
             console.log('click', i)
+        },
+        sendMessage(){
+            // if(){}
+            const newMess = {
+                    date: '10/01/2020 15:30:55',
+                    message: this.newChat,
+                    status: 'sent'
+            }
+            this.contacts[this.indexContacts].messages.push(newMess)
+            this.newChat = ''
+
+            console.log(this.newChat)
+            console.log(newMess)
+        },
+        // responseMessage(){
+        //     const newMess = {
+        //         date: '10/01/2020 15:30:55',
+        //         message: this.responseMess,
+        //         status: 'received'
+        //     } 
+        //     this.indexContacts
+        //     this.contacts[this.indexContacts].messages.push(newMess)
+        // },
+        responseMessage(){
+            setTimeout(()=>{
+                const newMess = {
+                    date: '10/01/2020 15:30:55',
+                    message: this.responseMess,
+                    status: 'received'
+                } 
+                this.indexContacts
+                this.contacts[this.indexContacts].messages.push(newMess)
+            }, 1000)
         }
+
     },
-    created(){}
+    created(){
+    }
 }).mount('#app');
 
 // contacts: [
