@@ -17,9 +17,8 @@
                     <div class="column">
                         <header>
                             <div class="profile row">
-                                <div class="img">
-                                    profile pic
-                                    <img src="" alt="">
+                                <div class="profile-pic">                                  
+                                    <img :src="contacts[0].avatar" alt="">
                                 </div>
                                 <div class="tools">
                                     button
@@ -36,19 +35,19 @@
                             <ul>
                                 <li v-for="(element, index) in contacts">
                                     <div class="row">
-                                        <div class="img">
-                                            <img src="" alt="">
+                                        <div class="profile-pic">
+                                            <img :src="element.avatar" alt="">
                                         </div>
-                                        <div class="">
+                                        <div class="chat-list-body">
                                             <div class="name">
-
+                                                {{element.name}}
                                             </div>
-                                            <div class="last-message">
-
+                                            <div class="last-sent-mess">
+                                                last sent mess
                                             </div>
                                         </div>
-                                        <div class="last-sent">
-                                            
+                                        <div class="last-seen">
+                                            xx:xx
                                         </div>
                                     </div>
                                 </li>
@@ -56,7 +55,38 @@
                         </div>
                      </div>   
                 </div>
-                <div class="col-7"></div>
+                <div class="col-7">
+                    <div class="column">
+                        <header>
+                            <div class="row">
+                                <div class="profile-pic">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="chat-functions">
+                                    X X X
+                                </div>
+                            </div>
+                        </header>
+                        <div class="chat-area">
+                            <ul>
+                                <li v-for="(element,index) in contacts[0].messages">
+                                    {{element.message}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chat-type-area">
+                            <div class="row">
+                                <div class="emoji">
+                                    button
+                                </div>
+                                <input type="text" placeholder="type to chat">
+                                <div class="send">
+                                    button
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
             </div>
         </div>
     </div>
