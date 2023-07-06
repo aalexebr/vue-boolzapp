@@ -182,7 +182,9 @@ img{
 .last-seen{
     color: rgb(144, 155, 166);
 }
-
+.display-none{
+    display: none;
+}
 /* CHAT AREA */
 
 .col-7 .row{

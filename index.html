@@ -57,14 +57,16 @@
                                 </div class="alert-text">
                             </div>
                             <div class="search-bar">
-                                <input type="text" placeholder="search in chat list">
+                                <input @keyup="searchFunction()"
+                                v-model="searchChat" type="text" placeholder="search in chat list">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </header>
                         <div class="chat-list">
                             <ul>
                                 <li v-for="(element, index) in contacts"
-                                @click="changeChat(index)">
+                                @click="changeChat(index)"
+                                :class="{'display-none': element.visible== false}">
                                     <div class="row">
                                         <div class="profile-pic">
                                             <img :src="element.avatar" alt="">

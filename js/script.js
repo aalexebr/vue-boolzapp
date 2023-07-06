@@ -4,6 +4,7 @@ Vue.createApp({
             newChat : '',
             responseMess :'ok',
             indexContacts: 0,
+            searchChat : '',
             contacts: [
                 {
                     name: 'Michele',
@@ -177,7 +178,7 @@ Vue.createApp({
             console.log('click', i)
         },
         sendMessage(){
-            // if(){}
+            if(this.newChat.trim() != ''){
             const newMess = {
                     date: '10/01/2020 15:30:55',
                     message: this.newChat,
@@ -185,9 +186,9 @@ Vue.createApp({
             }
             this.contacts[this.indexContacts].messages.push(newMess)
             this.newChat = ''
-
-            console.log(this.newChat)
-            console.log(newMess)
+            }
+            // console.log(this.newChat)
+            // console.log(newMess)
         },
         // responseMessage(){
         //     const newMess = {
@@ -208,10 +209,24 @@ Vue.createApp({
                 this.indexContacts
                 this.contacts[this.indexContacts].messages.push(newMess)
             }, 1000)
+        },
+        searchFunction(){
+            
+            for(let i=0; i<this.contacts.length; i++){
+                this.contacts[i].name.includes(this.searchChat)
+                if(!this.contacts[i].name.toLowerCase().includes(this.searchChat)){
+                    this.contacts[i].visible = false
+                }
+                else{
+                    this.contacts[i].visible = true
+                }
+            }
+            
         }
 
     },
     created(){
+        // this.searchFunction()
     }
 }).mount('#app');
 
