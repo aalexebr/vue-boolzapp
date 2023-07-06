@@ -193,6 +193,7 @@ img{
 .chat-area{
     flex-grow: 1;
     padding: 10px;
+    overflow-y: hidden;
 }
 /* chat are header */
 .col-7 header .row{
@@ -208,9 +209,11 @@ img{
     border-radius: 5px;
 }
 .chat-area ul.column{
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* align-items: flex-start; */
     justify-content: flex-start;
+    overflow-y: auto;
+    height: 100%;
 }
 /* .chat-area li{
     width: 100%;
