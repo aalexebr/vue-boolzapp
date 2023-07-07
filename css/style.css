@@ -98,11 +98,13 @@ img{
 /* notification */
 .notification{
     background-color: var(--aside-notification);
-}
-.notification.row{
+    height: 60px;
     padding: 10px;
-    /* align-items: center; */
 }
+/* .notification.row{
+    padding: 10px; */
+    /* align-items: center;
+} */
 .alert{
     display: inline-block;
     height: 40px;
@@ -231,6 +233,7 @@ main header .chat-functions i{
     padding: 20px;
     overflow-y: hidden;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../img/mine.jpg');
+    height: calc(100% - 120px);
 }
 
 .open-chat-area li{
