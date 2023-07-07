@@ -28,3 +28,19 @@
 }
 
 /* VAR  */
+
+
+:root{
+    --main-open-chat-area: #01051a;
+    --header-open-chat-area: #000823;
+    --header-aside: #000823;
+    --aside-notification: #0b2781;
+    --aside-chat-list: #01051a;
+    --aside-chat-list-border: #2d2e33;
+    --open-chat-area-sent: #8b56f4;
+    --open-chat-area-recieved: lightcoral;
+    --main-text-color: white;
+    --small-text-color: rgb(141, 138, 138);
+    --send-mess-footer: #01051a;
+}
+/* var() */

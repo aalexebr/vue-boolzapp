@@ -20,13 +20,14 @@
     <div id="app">
         <div class="container">
             <div class="row">
+
                 <aside class="col-3">
                     <div class="column">
                         <header>
                             <div class="profile row space-between align-center">
                                 <div class="user row align-center">
                                     <div class="profile-pic">                                  
-                                        <img :src="contacts[0].avatar" alt="">
+                                        <img src="img/avatar_io.jpg" alt="">
                                         
                                     </div>
                                     <span class="user-name">
@@ -66,6 +67,7 @@
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </header>
+
                         <div class="chat-list column">
                             <ul>
                                 <li v-for="(element, index) in contacts"
@@ -90,8 +92,10 @@
                                 </li>
                             </ul>
                         </div>
+
                      </div>   
                 </aside>
+
                 <main class="col-7">
                     <div class="column">
                         <header>
@@ -102,7 +106,13 @@
                                     </div>
                                     <!-- <div class="contact-name"> -->
                                     <div>
-                                        {{contacts[indexContacts].name}}
+                                        <p>
+                                            {{contacts[indexContacts].name}}
+                                        </p>
+                                        <span class="last-seen">
+                                            last seen:
+                                            {{contacts[indexContacts].messages[contacts[indexContacts].messages.length-1].date.substr(10,6)}}
+                                        </span>
                                     </div>
                                     <!-- </div> -->
                                 </div>    
@@ -113,6 +123,7 @@
                                 </div>
                             </div>
                         </header>
+
                         <div class="open-chat-area">
                             <ul class="column">
                                 <li v-for="(element,index) in contacts[indexContacts].messages"
@@ -129,6 +140,7 @@
                                 </li>
                             </ul>
                         </div>
+
                         <div class="chat-type-area">
                             <div class="row space-between align-center">
                                 <div class="emoji">
@@ -145,6 +157,7 @@
                         </div>
                     </div>    
                 </main>
+
             </div>
         </div>
     </div>
