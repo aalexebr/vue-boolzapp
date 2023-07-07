@@ -1,6 +1,7 @@
 Vue.createApp({
     data(){
         return{
+            currentTimeandDate : '',
             newChat : '',
             responseMess :'ok',
             indexContacts: 0,
@@ -178,9 +179,10 @@ Vue.createApp({
             // console.log('click', i)
         },
         sendMessage(){
+            this.getDate()
             if(this.newChat.trim() != ''){
             const newMess = {
-                    date: '10/01/2020 15:30:55',
+                    date: this.currentTimeandDate,
                     message: this.newChat,
                     status: 'sent'
             }
@@ -201,8 +203,9 @@ Vue.createApp({
         // },
         responseMessage(){
             setTimeout(()=>{
+                this.getDate()
                 const newMess = {
-                    date: '10/01/2020 15:30:55',
+                    date: this.currentTimeandDate,
                     message: this.responseMess,
                     status: 'received'
                 } 
@@ -222,11 +225,52 @@ Vue.createApp({
                 }
             }
             
+        },
+        getDate(){
+            const newDate = Date()
+            const objectDate = new Date();
+            let year = objectDate.getFullYear().toString()
+            let month = objectDate.getMonth().toString()
+            let day = objectDate.getDate().toString()
+            let hour = objectDate.getHours().toString()
+            let min = objectDate.getMinutes().toString()
+            let sec = objectDate.getSeconds().toString()
+            if(min.length==1){
+                min = `0${min}`
+                this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}`
+            }
+            if(hour.length==1){
+                hour = `0${hour}`
+                this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}`
+            }
+            if(day.length==1){
+                day = `0${day}`
+                this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}`
+            }
+            if(month.length==1){
+                month = `0${month}`
+                this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}`
+            }
+            if(sec.length==1){
+                sec= `0${sec}`
+            }
+            else{
+               this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}` 
+            }
+            
+            // console.log(day)
+            // console.log(day.length)
+            // console.log(this.currentTimeandDate)
         }
 
     },
     created(){
-        // this.searchFunction()
+        // this.getDate()
+        console.log(this.currentTimeandDate.length-1)
+        // console.log(this.currentTimeandDate)
+        console.log(this.currentTimeandDate.substr(11,5))
+        console.log(this.contacts[0].messages[0].date)
+        console.log(this.contacts[0].messages[this.contacts[0].messages.length-1].date.substr(11,5))
     }
 }).mount('#app');
 

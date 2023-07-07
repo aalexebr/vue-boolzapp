@@ -59,7 +59,7 @@
                                     <a href="#/">
                                         attiva notifiche desktop
                                     </a>
-                                </div class="alert-text">
+                                </div>
                             </div>
                             <div class="search-bar">
                                 <input @keyup="searchFunction()"
@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
                                         <div class="last-seen">
-                                            {{element.messages[element.messages.length-1].date.substr(10,6)}}
+                                            {{element.messages[element.messages.length-1].date.substr(11,5)}}
                                         </div>
                                     </div>
                                 </li>
@@ -132,7 +132,7 @@
                                     <div class="chat-text">
                                        {{element.message}}
                                        <div class="date-of-mess">
-                                            {{element.date.substr(10,6)}} 
+                                            {{element.date.substr(11,5)}} 
                                        </div>
                                        
                                     </div>
