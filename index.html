@@ -23,8 +23,8 @@
                 <aside class="col-3">
                     <div class="column">
                         <header>
-                            <div class="profile row">
-                                <div class="user row">
+                            <div class="profile row space-between align-center">
+                                <div class="user row align-center">
                                     <div class="profile-pic">                                  
                                         <img :src="contacts[0].avatar" alt="">
                                         
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="notification row">
+                            <div class="notification row align-center">
                                 <div class="alert">
                                     <i class="fa-solid fa-bell-slash"></i>
                                 </div>
@@ -66,12 +66,12 @@
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
                         </header>
-                        <div class="chat-list">
+                        <div class="chat-list column">
                             <ul>
                                 <li v-for="(element, index) in contacts"
                                 @click="changeChat(index)"
                                 :class="{'display-none': element.visible== false}">
-                                    <div class="row">
+                                    <div class="row align-center">
                                         <div class="profile-pic">
                                             <img :src="element.avatar" alt="">
                                         </div>
@@ -95,8 +95,8 @@
                 <main class="col-7">
                     <div class="column">
                         <header>
-                            <div class="row">
-                                <div class="open-chat-contact row">
+                            <div class="row align-center space-between">
+                                <div class="open-chat-contact row align-center">
                                     <div class="profile-pic">
                                         <img :src="contacts[indexContacts].avatar" alt="">
                                     </div>
@@ -130,7 +130,7 @@
                             </ul>
                         </div>
                         <div class="chat-type-area">
-                            <div class="row">
+                            <div class="row space-between align-center">
                                 <div class="emoji">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
