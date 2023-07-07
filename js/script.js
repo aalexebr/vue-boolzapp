@@ -1,6 +1,8 @@
 Vue.createApp({
     data(){
         return{
+            messageIndex : null,
+            flag: false,
             currentTimeandDate : '',
             newChat : '',
             responseMess :'ok',
@@ -246,6 +248,21 @@ Vue.createApp({
                this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}` 
             }
             
+        },
+        openMessageOptions(i){
+            console.log(this.flag)
+            if(this.flag){
+                this.flag = false
+            }   
+            this.flag = !this.flag
+            console.log(this.flag, 'post cliick',i,'idex')
+            this.messageIndex = i
+        },
+        deleteMessage(){
+            // this.contacts[indexContacts].messages[messageIndex]
+            console.log(this.contacts[this.indexContacts].messages[this.messageIndex])
+            this.contacts[this.indexContacts].messages.splice(this.messageIndex,1)
+            this.flag = !this.flag
         }
 
     },
