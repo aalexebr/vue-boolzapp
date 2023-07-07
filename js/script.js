@@ -108,7 +108,7 @@ Vue.createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: 'img/avatar_5.jpg',
+                    avatar: 'img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -175,7 +175,7 @@ Vue.createApp({
         changeChat(i){
             console.log('couner', this.indexContacts)
             this.indexContacts = i
-            console.log('click', i)
+            // console.log('click', i)
         },
         sendMessage(){
             if(this.newChat.trim() != ''){
