@@ -63,7 +63,9 @@ img{
     width: 40px;
     /* background-color: rgb(230, 194, 173); */
 }
-
+/* a{
+    color: var(--small-text-color);
+} */
 
 /* body */
 .container{
@@ -121,7 +123,7 @@ img{
 }
 .alert-text a{
     display: block;
-    color: var(--aside-notification);
+    color: var(--small-text-color);
 
 }
 

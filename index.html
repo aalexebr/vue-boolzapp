@@ -146,7 +146,8 @@
                                 <div class="emoji">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
-                                <input v-model="newChat" type="text" placeholder="type to chat">
+                                <input v-model="newChat" @keyup.enter="sendMessage();responseMessage()"
+                                    type="text" placeholder="type to chat">
                                 <div class="send" @click="sendMessage();responseMessage()">
                                     <!-- <button @click="sendMessage();responseMessage()">
                                         send
