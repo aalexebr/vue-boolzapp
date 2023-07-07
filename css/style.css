@@ -4,7 +4,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+}
+body{
     color: var(--main-text-color);
+    background: rgb(2,0,36);
+
 }
 /* DEBUG */
 .debug .container{
@@ -17,30 +21,27 @@
     border: 2px solid rgb(112, 76, 196);
 }
 /* debug chat list */
-.debug .profile.row{
+/* .debug .profile.row{
     border: 1px solid rgb(196, 76, 132);
     height: 60px;
-}
+} */
 .debug .notification{
     border: 1px solid rgb(76, 152, 196);
     height: 60px;
 }
-.debug .search-bar{
+/* .debug .search-bar{
     border: 1px solid rgb(196, 172, 76);
-    /* height: 60px; */
-}
+    height: 60px;
+} */
 /* debug chat area */
-.debug .col-7 header{
+/* .debug .col-7 header{
     border: 2px solid rgb(112, 76, 196);
-    /* height: 60px; */
-}
+    height: 60px;
+} */
 .debug .open-chat-area{
     background-color: bisque;
 }
-.debug .chat-type-area{
-    height: 60px;
-    /* background-color: lightcoral; */
-}
+
 /* utilities */
 
 /* GENERAL */
@@ -82,6 +83,7 @@ img{
 }
 .profile{
     padding: 10px;
+    height: var(--height-of-header);
 }
 /* .profile.row{
     justify-content: space-between;
@@ -100,7 +102,7 @@ img{
 /* notification */
 .notification{
     background-color: var(--aside-notification);
-    height: 60px;
+    height: var(--height-of-notification);
     padding: 10px;
 }
 /* .notification.row{
@@ -135,7 +137,7 @@ img{
 }
 .search-bar input{
     width: 100%;
-    height: 25px;
+    height: 30px;
     padding-left: 30px;
     color: var(--small-text-color);
     
@@ -208,7 +210,7 @@ img{
 .col-7 header{
     padding: 10px;
     background-color: var(--header-open-chat-area);
-    height: 60px;
+    height: var(--height-of-header);
 }
 /* .col-7 header .row{
     align-items: center;
@@ -235,7 +237,7 @@ main header .chat-functions i{
     padding: 20px;
     overflow-y: hidden;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../img/mine.jpg');
-    height: calc(100% - 120px);
+    height: calc(100% - (var(--height-of-header) + var(--height-of-type-to-chat)));
 }
 
 .open-chat-area li{
@@ -280,7 +282,7 @@ main header .chat-functions i{
 .chat-type-area{
     padding: 1px;
     background-color: var(--send-mess-footer);
-    height: 60px;
+    height: var(--height-of-type-to-chat);
 }
 /* .chat-type-area .row{
     justify-content: space-between;
@@ -290,7 +292,7 @@ main header .chat-functions i{
     flex-grow: 1;
     height: 30px;
     padding: 10px;
-    color: var(--small-text-color);
+    color: black;
 }
 /* .send button{
     color: grey;

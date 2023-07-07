@@ -176,7 +176,6 @@ Vue.createApp({
         changeChat(i){
             console.log('couner', this.indexContacts)
             this.indexContacts = i
-            // console.log('click', i)
         },
         sendMessage(){
             this.getDate()
@@ -189,18 +188,7 @@ Vue.createApp({
             this.contacts[this.indexContacts].messages.push(newMess)
             this.newChat = ''
             }
-            // console.log(this.newChat)
-            // console.log(newMess)
         },
-        // responseMessage(){
-        //     const newMess = {
-        //         date: '10/01/2020 15:30:55',
-        //         message: this.responseMess,
-        //         status: 'received'
-        //     } 
-        //     this.indexContacts
-        //     this.contacts[this.indexContacts].messages.push(newMess)
-        // },
         responseMessage(){
             setTimeout(()=>{
                 this.getDate()
@@ -258,19 +246,16 @@ Vue.createApp({
                this.currentTimeandDate = `${day}/${month}/${year} ${hour}:${min}:${sec}` 
             }
             
-            // console.log(day)
-            // console.log(day.length)
-            // console.log(this.currentTimeandDate)
         }
 
     },
     created(){
         // this.getDate()
-        console.log(this.currentTimeandDate.length-1)
+        // console.log(this.currentTimeandDate.length-1)
         // console.log(this.currentTimeandDate)
-        console.log(this.currentTimeandDate.substr(11,5))
-        console.log(this.contacts[0].messages[0].date)
-        console.log(this.contacts[0].messages[this.contacts[0].messages.length-1].date.substr(11,5))
+        // console.log(this.currentTimeandDate.substr(11,5))
+        // console.log(this.contacts[0].messages[0].date)
+        // console.log(this.contacts[0].messages[this.contacts[0].messages.length-1].date.substr(11,5))
     }
 }).mount('#app');
 

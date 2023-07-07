@@ -42,5 +42,8 @@
     --main-text-color: white;
     --small-text-color: rgb(141, 138, 138);
     --send-mess-footer: #01051a;
+    --height-of-header: 70px;
+    --height-of-notification: 75px;
+    --height-of-type-to-chat: 65px;
 }
 /* var() */
