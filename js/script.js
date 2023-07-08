@@ -1,6 +1,8 @@
+
 Vue.createApp({
     data(){
         return{
+            tempRecievedMessArr : [],
             messageIndex : null,
             flag: false,
             currentTimeandDate : '',
@@ -178,6 +180,8 @@ Vue.createApp({
         changeChat(i){
             console.log('couner', this.indexContacts)
             this.indexContacts = i
+            this.tempRecievedMessArr = []
+            this.createRecievedMessArr()
         },
         sendMessage(){
             this.getDate()
@@ -201,6 +205,8 @@ Vue.createApp({
                 } 
                 this.indexContacts
                 this.contacts[this.indexContacts].messages.push(newMess)
+                this.tempRecievedMessArr = []
+                this.createRecievedMessArr()
             }, 1000)
         },
         searchFunction(){
@@ -250,29 +256,47 @@ Vue.createApp({
             
         },
         openMessageOptions(i){
-            console.log(this.flag)
-            
+            // console.log(this.flag)
             this.flag = !this.flag
-            // if(this.messageIndex == i && this.flag){
-            //     this.flag = false
-            // }
-            
-            console.log(this.flag)
+            // console.log(this.flag)
             this.messageIndex = i
+            console.log(this.messageIndex)
         },
         deleteMessage(){
             this.contacts[this.indexContacts].messages.splice(this.messageIndex,1)
             this.flag = !this.flag
-        }
+            if(this.tempRecievedMessArr.length == 0){
+
+            }
+        },
+        createRecievedMessArr(){
+            for(i = 0; i < this.contacts[this.indexContacts].messages.length; i++){
+                // let singleMessage = this.contacts[this.indexContacts].messages[i]
+                if(this.contacts[this.indexContacts].messages[i].status== 'received'){
+                    this.tempRecievedMessArr.push(this.contacts[this.indexContacts].messages[i]) 
+                } 
+            }
+                
+            // console.log(this.tempRecievedMessArr)
+        },
+        // lastRecivedMessDate(){
+        //     let mess = null
+        //     for(i = 0; i < this.contacts[0].messages.length; i++){
+        //         // let singleMess = this.contacts[0].messages
+        //         // console.log(singleMess)
+        //         if(this.contacts[0].messages[i].status == 'received'){
+        //             mess = this.contacts[0].messages[i]
+                   
+        //         }
+        //     }
+        //     console.log(mess) 
+            
+        // }
 
     },
     created(){
-        // this.getDate()
-        // console.log(this.currentTimeandDate.length-1)
-        // console.log(this.currentTimeandDate)
-        // console.log(this.currentTimeandDate.substr(11,5))
-        // console.log(this.contacts[0].messages[0].date)
-        // console.log(this.contacts[0].messages[this.contacts[0].messages.length-1].date.substr(11,5))
+        this.createRecievedMessArr()
+        // this.lastRecivedMessDate()
     }
 }).mount('#app');
 

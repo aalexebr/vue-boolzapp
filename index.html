@@ -110,8 +110,12 @@
                                             {{contacts[indexContacts].name}}
                                         </p>
                                         <span v-if="contacts[indexContacts].messages.length > 0"class="last-seen">
-                                            last seen:
-                                            {{contacts[indexContacts].messages[contacts[indexContacts].messages.length-1].date.substr(10,6)}}
+                                            <span v-if="tempRecievedMessArr.length>0">
+                                                last seen: 
+                                                {{tempRecievedMessArr[tempRecievedMessArr.length-1].date.substr(10,6)}}  
+                                            </span>
+                                            
+                                            <!-- {{contacts[indexContacts].messages[contacts[indexContacts].messages.length-1].date.substr(10,6)}} -->
                                         </span>
                                     </div>
 
@@ -137,11 +141,11 @@
                                     </div>
                                     <div class="message-option-button"
                                         @click="openMessageOptions(index)"
-                                        :class="{'display':flag}">
+                                        :class="{'display': (flag) && (messageIndex == index)}">
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </div>  
                                     <div class="message-options"
-                                        :class="{'display':flag && messageIndex == index}"
+                                        :class="{'display': (flag) && (messageIndex == index)}"
                                         @click.stop="deleteMessage()">
                                         Delete 
                                     </div>    
