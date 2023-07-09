@@ -1,4 +1,6 @@
 @import url('utilities.css');
+
+@import url('vueclasses.css');
 *{
     margin: 0;
     padding: 0;
@@ -123,6 +125,8 @@ img{
     background-color: rgba(255, 255, 255, 0.445);
     border-radius: 20px;
     text-align: center;
+    color: white;
+    cursor: pointer;
 }
 .notification .alert-text{
     display: inline-block;
@@ -386,6 +390,3 @@ main header .chat-functions i{
 
 
 
-/* ----------------- */
-/* VUE CLASSES */
-@import url('vueclasses.css');

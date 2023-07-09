@@ -27,21 +27,28 @@
 }
 /* theme2 */
 .theme-two-header-footer{
-    background-color: #000000;
+    background-color: #1c1c1c;
+    color: white;
 }
 .theme-two-notification{
-    background-color: #4b2c3b;
+    background-color: #747474;
+
 }
 .theme-two-contact-list{
-    background-color: #3c3f3e;
-    border-color: #4f4f54;
+    background-color: #2c2c2c;
+    border-color: #a0a0a6;
+    color: white;
 }
 .theme-two-sent{
-    background-color: #9c288a91;
+    background-color: #4a4a4a91;
+    border: 2px solid rgb(255, 0, 183);
+    color: white;
 }
 .theme-two-received{
-    background-color: rgba(19, 120, 160, 0.694);
+    background-color: #43434391;
+    border: 2px solid rgb(0, 153, 255);
+    color: white;
 }
 .theme-two-background{
-    background: linear-gradient(rgba(0, 0, 0, 0.365), rgba(0, 0, 0, 0.393)),url('../img/mine.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.765), rgba(0, 0, 0, 0.779)),url('../img/mine.jpg');
 }

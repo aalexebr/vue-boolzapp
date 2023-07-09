@@ -24,7 +24,8 @@
                 <aside class="col-3">
                     <div class="column">
                         <header class="theme-base-header-footer"
-                        :class="{'theme-one-header-footer':themes[0].singleThemeFlag}">
+                        :class="{'theme-one-header-footer':themes[0].singleThemeFlag,
+                                'theme-two-header-footer':themes[1].singleThemeFlag}">
                             <div class="profile row space-between align-center">
                                 <div class="user row align-center">
                                     <div class="profile-pic">                                  
@@ -69,7 +70,8 @@
                                 </div>
                             </div>
                             <div class="notification row align-center theme-base-notification"
-                                :class="{'theme-one-notification':themes[0].singleThemeFlag}">
+                                :class="{'theme-one-notification':themes[0].singleThemeFlag,
+                                        'theme-two-notification':themes[1].singleThemeFlag}">
                                 <div class="alert">
                                     <i class="fa-solid fa-bell-slash"></i>
                                 </div>
@@ -90,7 +92,8 @@
                         </header>
 
                         <div class="contact-list column theme-base-contact-list"
-                            :class="{'theme-one-contact-list':themes[0].singleThemeFlag}">
+                            :class="{'theme-one-contact-list':themes[0].singleThemeFlag,
+                                    'theme-two-contact-list':themes[1].singleThemeFlag}">
                             <ul>
                                 <li v-for="(element, index) in contacts"
                                 @click="changeChat(index)"
@@ -109,7 +112,8 @@
                                             </div>
                                         </div>
                                         <div v-if="element.messages.length > 0" class="last-seen ">
-                                            {{element.messages[element.messages.length-1].date.substr(11,5)}}
+                                            {{element.messages[element.messages.length-1].date.substr(0,10)}}
+                                            <!-- {{element.messages[element.messages.length-1].date.substr(11,5)}} -->
                                         </div>
                                     </div>
                                 </li>
@@ -122,7 +126,8 @@
                 <main class="col-7">
                     <div class="column">
                         <header class="theme-base-header-footer"
-                                :class="{'theme-one-header-footer':themes[0].singleThemeFlag}">
+                                :class="{'theme-one-header-footer':themes[0].singleThemeFlag,
+                                        'theme-two-header-footer':themes[1].singleThemeFlag}">
                             <div class="row align-center space-between">
                                 <div class="open-chat-contact row align-center">
                                     <div class="profile-pic">
@@ -153,13 +158,16 @@
                         </header>
 
                         <div class="open-chat-area theme-base-background"
-                            :class="{'theme-one-background':themes[0].singleThemeFlag}">
+                            :class="{'theme-one-background':themes[0].singleThemeFlag,
+                                    'theme-two-background':themes[1].singleThemeFlag}">
                             <ul class="column">
                                 <li v-for="(element,index) in contacts[indexContacts].messages"
                                 :class="{'sent theme-base-sent':(element.status == 'sent'),
                                         'received theme-base-received':element.status == 'received',
                                         'theme-one-sent':(element.status == 'sent')&&(themes[0].singleThemeFlag),
-                                        'theme-one-received':(element.status == 'received')&&(themes[0].singleThemeFlag)}">
+                                        'theme-one-received':(element.status == 'received')&&(themes[0].singleThemeFlag),
+                                        'theme-two-sent':(element.status == 'sent')&&(themes[1].singleThemeFlag),
+                                        'theme-two-received':(element.status == 'received')&&(themes[1].singleThemeFlag)}">
                                     <div class="chat-text">
                                        {{element.message}}
                                        <div class="date-of-mess">
@@ -181,7 +189,8 @@
                         </div>
 
                         <footer class="chat-type-area theme-base-header-footer"
-                                :class="{'theme-one-header-footer':themes[0].singleThemeFlag}">
+                                :class="{'theme-one-header-footer':themes[0].singleThemeFlag,
+                                        'theme-two-header-footer':themes[1].singleThemeFlag}">
                             <div class="row space-between align-center">
                                 <div class="emoji">
                                     <i class="fa-regular fa-face-smile"></i>

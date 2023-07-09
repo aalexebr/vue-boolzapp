@@ -96,7 +96,7 @@
 }
 /* :class="{'theme-one-contact-list':themes[0].singleThemeFlag}" */
 /* theme1 */
-.theme-one-header-footer{
+/* .theme-one-header-footer{
     background-color: #235e51;
 }
 .theme-one-notification{
@@ -114,7 +114,7 @@
 }
 .theme-one-background{
     background: linear-gradient(rgba(21, 84, 29, 0.395), rgba(17, 84, 36, 0.413)),url('../img/mine.jpg');
-}
+} */
 /* theme2 */
 .theme-two-header-footer{
     background-color: #000000;

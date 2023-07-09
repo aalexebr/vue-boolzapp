@@ -5,7 +5,7 @@ Vue.createApp({
             themes : [
                 {
                     singleThemeFlag: false,
-                    themeIcon: `<i class="fa-solid fa-palette"></i>`
+                    themeIcon: `<i class="fa-solid fa-leaf"></i>`
                 },
                 {
                     singleThemeFlag: false,
@@ -281,7 +281,7 @@ Vue.createApp({
             }
         },
         createRecievedMessArr(){
-            for(i = 0; i < this.contacts[this.indexContacts].messages.length; i++){
+            for(let i = 0; i < this.contacts[this.indexContacts].messages.length; i++){
                 // let singleMessage = this.contacts[this.indexContacts].messages[i]
                 if(this.contacts[this.indexContacts].messages[i].status== 'received'){
                     this.tempRecievedMessArr.push(this.contacts[this.indexContacts].messages[i]) 
