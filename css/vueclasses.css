@@ -1,0 +1,47 @@
+.display{
+    display: block;
+}
+
+
+/* themes */
+
+/* theme1 */
+.theme-one-header-footer{
+    background-color: #235e51;
+}
+.theme-one-notification{
+    background-color: #3c868e;
+}
+.theme-one-contact-list{
+    background-color: #276d62;
+    border-color: #2d2e33;
+}
+.theme-one-sent{
+    background-color: #1c5f70c1;
+}
+.theme-one-received{
+    background-color: rgba(155, 96, 7, 0.694);
+}
+.theme-one-background{
+    background: linear-gradient(rgba(21, 84, 29, 0.395), rgba(17, 84, 36, 0.413)),url('../img/mine.jpg');
+}
+/* theme2 */
+.theme-two-header-footer{
+    background-color: #000000;
+}
+.theme-two-notification{
+    background-color: #4b2c3b;
+}
+.theme-two-contact-list{
+    background-color: #3c3f3e;
+    border-color: #4f4f54;
+}
+.theme-two-sent{
+    background-color: #9c288a91;
+}
+.theme-two-received{
+    background-color: rgba(19, 120, 160, 0.694);
+}
+.theme-two-background{
+    background: linear-gradient(rgba(0, 0, 0, 0.365), rgba(0, 0, 0, 0.393)),url('../img/mine.jpg');
+}

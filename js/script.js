@@ -4,11 +4,11 @@ Vue.createApp({
         return{
             themes : [
                 {
-                    themeFlag: false,
+                    singleThemeFlag: false,
                     themeIcon: `<i class="fa-solid fa-palette"></i>`
                 },
                 {
-                    themeFlag: false,
+                    singleThemeFlag: false,
                     themeIcon: `<i class="fa-regular fa-moon"></i>`
                 }
             ],
@@ -292,17 +292,20 @@ Vue.createApp({
         },
         openThemeOpt(){
             this.themeFlag = !this.themeFlag
-            console.log(this.themeFlag,'click')
+            // console.log(this.themeFlag,'click')
         },
         changeTheme(i){
-            console.log('clikc', i)
-            this.themes[i].themeFlag = true
+            // console.log('clikc', i)
+            this.themes[i].singleThemeFlag = !this.themes[i].singleThemeFlag
             for(j=0; j<this.themes.length;j++){
-                console.log(this.themes[j])
+                // console.log(this.themes[j])
                 if(this.themes[j]!=this.themes[i]){
-                    this.themes[j].themeFlag = false
+                    this.themes[j].singleThemeFlag = false
                 }
             }
+        },
+        contactUp(){
+
         }
 
         // lastRecivedMessDate(){

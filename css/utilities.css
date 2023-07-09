@@ -11,6 +11,12 @@
 .align-center{
     align-items: center;
 }
+.align-end{
+    align-items: end;
+}
+.align-start{
+    align-items: start;
+}
 .col-7{
     width: 70%;
 }
@@ -64,6 +70,31 @@
     --height-of-notification: 75px;
     --height-of-type-to-chat: 65px;
 }
+/* base theme */
+.theme-base-header-footer{
+    background-color: #EAEAEA;
+    color: black;
+}
+.theme-base-notification{
+    background-color: #8EDAFC;
+}
+.theme-base-contact-list{
+    background-color: white;
+    border-color: #565656;
+    color: black;
+}
+.theme-base-sent{
+    background-color: #D5F9BA;
+    color: black;
+}
+.theme-base-received{
+    background-color: white;
+    color: black;
+}
+.theme-base-background{
+    background-image: url('../img/mine.jpg');
+}
+/* :class="{'theme-one-contact-list':themes[0].singleThemeFlag}" */
 /* theme1 */
 .theme-one-header-footer{
     background-color: #235e51;
@@ -78,7 +109,7 @@
 .theme-one-sent{
     background-color: #1c5f70c1;
 }
-.theme-one-recieved{
+.theme-one-received{
     background-color: rgba(155, 96, 7, 0.694);
 }
 .theme-one-background{
@@ -98,7 +129,7 @@
 .theme-two-sent{
     background-color: #9c288a91;
 }
-.theme-two-recieved{
+.theme-two-received{
     background-color: rgba(19, 120, 160, 0.694);
 }
 .theme-two-background{

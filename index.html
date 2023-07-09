@@ -23,7 +23,8 @@
 
                 <aside class="col-3">
                     <div class="column">
-                        <header>
+                        <header class="theme-base-header-footer"
+                        :class="{'theme-one-header-footer':themes[0].singleThemeFlag}">
                             <div class="profile row space-between align-center">
                                 <div class="user row align-center">
                                     <div class="profile-pic">                                  
@@ -50,7 +51,9 @@
                                     <div class="pos-absolute theme-options justify-center display-none"
                                         :class={'display':themeFlag}>
                                         <div v-for="(singleTheme, index) in themes"
-                                            class="theme-mode row align-center"
+                                            class="theme-mode column justify-center"
+                                            :class="{'align-end': singleTheme.singleThemeFlag,
+                                                    'align-start': singleTheme.singleThemeFlag==false}"
                                             @click="changeTheme(index)">
                                             <div class="theme-clicker"
                                                 v-html="singleTheme.themeIcon">
@@ -65,7 +68,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="notification row align-center">
+                            <div class="notification row align-center theme-base-notification"
+                                :class="{'theme-one-notification':themes[0].singleThemeFlag}">
                                 <div class="alert">
                                     <i class="fa-solid fa-bell-slash"></i>
                                 </div>
@@ -85,7 +89,8 @@
                             </div>
                         </header>
 
-                        <div class="contact-list column">
+                        <div class="contact-list column theme-base-contact-list"
+                            :class="{'theme-one-contact-list':themes[0].singleThemeFlag}">
                             <ul>
                                 <li v-for="(element, index) in contacts"
                                 @click="changeChat(index)"
@@ -116,7 +121,8 @@
 
                 <main class="col-7">
                     <div class="column">
-                        <header>
+                        <header class="theme-base-header-footer"
+                                :class="{'theme-one-header-footer':themes[0].singleThemeFlag}">
                             <div class="row align-center space-between">
                                 <div class="open-chat-contact row align-center">
                                     <div class="profile-pic">
@@ -146,11 +152,14 @@
                             </div>
                         </header>
 
-                        <div class="open-chat-area">
+                        <div class="open-chat-area theme-base-background"
+                            :class="{'theme-one-background':themes[0].singleThemeFlag}">
                             <ul class="column">
                                 <li v-for="(element,index) in contacts[indexContacts].messages"
-                                :class="{'sent':element.status == 'sent',
-                                        'recieved':element.status == 'received'}">
+                                :class="{'sent theme-base-sent':(element.status == 'sent'),
+                                        'received theme-base-received':element.status == 'received',
+                                        'theme-one-sent':(element.status == 'sent')&&(themes[0].singleThemeFlag),
+                                        'theme-one-received':(element.status == 'received')&&(themes[0].singleThemeFlag)}">
                                     <div class="chat-text">
                                        {{element.message}}
                                        <div class="date-of-mess">
@@ -171,7 +180,8 @@
                             </ul>
                         </div>
 
-                        <div class="chat-type-area">
+                        <footer class="chat-type-area theme-base-header-footer"
+                                :class="{'theme-one-header-footer':themes[0].singleThemeFlag}">
                             <div class="row space-between align-center">
                                 <div class="emoji">
                                     <i class="fa-regular fa-face-smile"></i>
@@ -185,7 +195,7 @@
                                     <i class="fa-solid fa-paper-plane"></i>
                                 </div>
                             </div>
-                        </div>
+                        </footer>
                     </div>    
                 </main>
 
