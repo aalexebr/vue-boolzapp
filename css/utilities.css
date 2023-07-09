@@ -2,6 +2,12 @@
 .space-between{
     justify-content: space-between;
 }
+.justify-center{
+    justify-content: center;
+}
+.justify-end{
+    justify-content: flex-end;
+}
 .align-center{
     align-items: center;
 }
@@ -29,28 +35,72 @@
 .display-none{
     display: none;
 }
-/* .display{
+.display{
     display: block;
-} */
-
+}
+.pos-relative{
+    position: relative;
+}
+.pos-absolute{
+    position: absolute;
+}
 
 /* VAR  */
 
 
 :root{
     --main-open-chat-area: #2f48c6;
-    --header-open-chat-area: #235e51;
+    --theme-one-header-open-chat-area: #235e51;
     --header-aside: #235e51;
-    --aside-notification: #3c8e7c;
-    --aside-contact-list: #235e51;
+    --theme-one-aside-notification: #3c868e;
+    --theme-one-aside-contact-list: #276d62;
     --aside-contact-list-border: #2d2e33;
-    --open-chat-area-sent: #1c5f70;
-    --open-chat-area-recieved: rgb(104, 134, 7);
+    --theme-one-sent: #1c5f70c1;
+    --theme-one-recieved: rgba(155, 96, 7, 0.694);
     --main-text-color: white;
-    --small-text-color: rgb(141, 138, 138);
+    --small-text-color: rgb(140, 154, 169);
     --send-mess-footer: #235e51;
     --height-of-header: 70px;
     --height-of-notification: 75px;
     --height-of-type-to-chat: 65px;
 }
-/* var() */
+/* theme1 */
+.theme-one-header-footer{
+    background-color: #235e51;
+}
+.theme-one-notification{
+    background-color: #3c868e;
+}
+.theme-one-contact-list{
+    background-color: #276d62;
+    border-color: #2d2e33;
+}
+.theme-one-sent{
+    background-color: #1c5f70c1;
+}
+.theme-one-recieved{
+    background-color: rgba(155, 96, 7, 0.694);
+}
+.theme-one-background{
+    background: linear-gradient(rgba(21, 84, 29, 0.395), rgba(17, 84, 36, 0.413)),url('../img/mine.jpg');
+}
+/* theme2 */
+.theme-two-header-footer{
+    background-color: #000000;
+}
+.theme-two-notification{
+    background-color: #4b2c3b;
+}
+.theme-two-contact-list{
+    background-color: #3c3f3e;
+    border-color: #4f4f54;
+}
+.theme-two-sent{
+    background-color: #9c288a91;
+}
+.theme-two-recieved{
+    background-color: rgba(19, 120, 160, 0.694);
+}
+.theme-two-background{
+    background: linear-gradient(rgba(0, 0, 0, 0.365), rgba(0, 0, 0, 0.393)),url('../img/mine.jpg');
+}

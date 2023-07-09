@@ -34,7 +34,7 @@
                                         Nobody
                                     </span>
                                 </div>
-                                <div class="tools ">
+                                <div class="tools pos-relative">
                                     <div class="row">
                                         <div class="profile-functions">
                                             <i class="fa-solid fa-circle-notch"></i>
@@ -42,9 +42,26 @@
                                         <div class="profile-functions">
                                             <i class="fa-solid fa-message"></i>
                                         </div>
-                                        <div class="profile-functions">
+                                        <div class="profile-functions "
+                                            @click="openThemeOpt()">
                                             <i class="fa-solid fa-ellipsis-vertical"></i>
                                         </div>
+                                    </div>
+                                    <div class="pos-absolute theme-options justify-center display-none"
+                                        :class={'display':themeFlag}>
+                                        <div v-for="(singleTheme, index) in themes"
+                                            class="theme-mode row align-center"
+                                            @click="changeTheme(index)">
+                                            <div class="theme-clicker"
+                                                v-html="singleTheme.themeIcon">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="dark-mode row align-center">
+                                            <div class="theme-clicker"></div>
+                                        </div>
+                                        <div class="light-mode row align-center">
+                                            <div class="theme-clicker"></div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -82,10 +99,11 @@
                                                 {{element.name}}
                                             </div>
                                             <div class="last-sent-mess">
-                                                last sent mess
+                                                {{element.messages[element.messages.length-1].message.substr(0,15)}}
+                                                <span v-if="element.messages[element.messages.length-1].message.length>10">...</span>
                                             </div>
                                         </div>
-                                        <div v-if="element.messages.length > 0" class="last-seen">
+                                        <div v-if="element.messages.length > 0" class="last-seen ">
                                             {{element.messages[element.messages.length-1].date.substr(11,5)}}
                                         </div>
                                     </div>

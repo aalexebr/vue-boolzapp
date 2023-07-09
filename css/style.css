@@ -99,13 +99,14 @@ img{
 } */
 .profile .profile-functions{
     padding: 0 5px;
+    cursor: pointer;
 }
 .tools i{
-    color: rgb(140, 154, 169);
+    color: var(--small-text-color);
 }
 /* notification */
 .notification{
-    background-color: var(--aside-notification);
+    background-color: var(--theme-one-aside-notification);
     height: var(--height-of-notification);
     padding: 10px;
 }
@@ -151,7 +152,7 @@ img{
     left: 10px;
     top: 10px;
     cursor: pointer;
-    color: grey;
+    color: var(--small-text-color);
 }
 
 /* CHAT LIST */
@@ -161,7 +162,7 @@ img{
     /* display: flex;
     flex-direction: column; */
     margin-bottom: 0;
-    background-color: var(--aside-contact-list);
+    background-color: var(--theme-one-aside-contact-list);
 }
 .contact-list ul{
     /* height: 100%; */
@@ -192,9 +193,9 @@ img{
 }
 .last-sent-mess,
 .last-seen{
-    color: rgb(144, 155, 166);
+    color: var(--small-text-color);
     font-size: 0.85rem;
-    
+    text-overflow: ellipsis;
 }
 .last-seen{
     font-size: 0.65rem;
@@ -216,7 +217,7 @@ img{
 /* chat area header */
 .col-7 header{
     padding: 10px;
-    background-color: var(--header-open-chat-area);
+    background-color: var(--theme-one-header-open-chat-area);
     height: var(--height-of-header);
 }
 /* .col-7 header .row{
@@ -232,7 +233,7 @@ header .open-chat-contact.row{
 main header .chat-functions i{
     display: inline-block;
     padding: 5px;
-    color: grey;
+    color: var(--small-text-color);
     cursor: pointer;
     margin: 0 5px;
 }
@@ -243,8 +244,9 @@ main header .chat-functions i{
     flex-grow: 1;
     padding: 20px;
     overflow-y: hidden;
-    /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../img/mine.jpg'); */
-    background-image: url('../img/mine.jpg');
+    background: linear-gradient(rgba(21, 84, 29, 0.395), rgba(17, 84, 36, 0.413)),url('../img/mine.jpg');
+    /* background: linear-gradient(rgba(21, 84, 29, 0.395), rgba(17, 84, 36, 0.413));
+    background: url('../img/mine.jpg'); */
     height: calc(100% - (var(--height-of-header) + var(--height-of-type-to-chat)));
 }
 
@@ -254,7 +256,7 @@ main header .chat-functions i{
     padding: 18px 10px;
     width: 250px;
     margin: 5px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     position: relative;
 }
 .open-chat-area li .chat-text{
@@ -277,14 +279,14 @@ main header .chat-functions i{
     bottom: 5px;
     right: 5px;
     font-size: 0.65rem;
-    color: lightslategray;
+    color: var(--small-text-color);
 }
 .sent{
     align-self: flex-end;
-    background-color: var(--open-chat-area-sent);
+    background-color: var(--theme-one-sent);
 }
 .recieved{
-    background-color: var(--open-chat-area-recieved);
+    background-color: var(--theme-one-recieved);
 }
 .message-options{
     display: none;
@@ -336,8 +338,93 @@ main header .chat-functions i{
 } */
 .send,
 .emoji{
-    color: grey;
+    color: var(--small-text-color);
     cursor: pointer;
     padding: 10px;
     margin: 0 10px;
+}
+
+
+
+
+/* theme block */
+.theme-options{
+    /* height: 100px; */
+    background-color: rgba(18, 9, 9, 0.463);
+    padding: 5px 5px 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.theme-mode{
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid rgb(0, 0, 0);
+    margin-bottom: 5px;
+    padding: 0 1px;
+}
+.theme-clicker{
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px;
+    background-color: rgba(19, 18, 18, 0.913);
+    text-align: center;
+    line-height: 25px;
+    vertical-align: middle;
+    color: white;
+}
+
+
+
+
+
+/* ----------------- */
+/* VUE CLASSES */
+.display{
+    display: block;
+}
+
+/* theme1 */
+.theme-one-header-footer{
+    background-color: #235e51;
+}
+.theme-one-notification{
+    background-color: #3c868e;
+}
+.theme-one-contact-list{
+    background-color: #276d62;
+    border-color: #2d2e33;
+}
+.theme-one-sent{
+    background-color: #1c5f70c1;
+}
+.theme-one-recieved{
+    background-color: rgba(155, 96, 7, 0.694);
+}
+.theme-one-background{
+    background: linear-gradient(rgba(21, 84, 29, 0.395), rgba(17, 84, 36, 0.413)),url('../img/mine.jpg');
+}
+/* theme2 */
+.theme-two-header-footer{
+    background-color: #000000;
+}
+.theme-two-notification{
+    background-color: #4b2c3b;
+}
+.theme-two-contact-list{
+    background-color: #3c3f3e;
+    border-color: #4f4f54;
+}
+.theme-two-sent{
+    background-color: #9c288a91;
+}
+.theme-two-recieved{
+    background-color: rgba(19, 120, 160, 0.694);
+}
+.theme-two-background{
+    background: linear-gradient(rgba(0, 0, 0, 0.365), rgba(0, 0, 0, 0.393)),url('../img/mine.jpg');
 }

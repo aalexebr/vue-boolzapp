@@ -2,6 +2,17 @@
 Vue.createApp({
     data(){
         return{
+            themes : [
+                {
+                    themeFlag: false,
+                    themeIcon: `<i class="fa-solid fa-palette"></i>`
+                },
+                {
+                    themeFlag: false,
+                    themeIcon: `<i class="fa-regular fa-moon"></i>`
+                }
+            ],
+            themeFlag: false,
             tempRecievedMessArr : [],
             messageIndex : null,
             flag: false,
@@ -279,6 +290,21 @@ Vue.createApp({
                 
             // console.log(this.tempRecievedMessArr)
         },
+        openThemeOpt(){
+            this.themeFlag = !this.themeFlag
+            console.log(this.themeFlag,'click')
+        },
+        changeTheme(i){
+            console.log('clikc', i)
+            this.themes[i].themeFlag = true
+            for(j=0; j<this.themes.length;j++){
+                console.log(this.themes[j])
+                if(this.themes[j]!=this.themes[i]){
+                    this.themes[j].themeFlag = false
+                }
+            }
+        }
+
         // lastRecivedMessDate(){
         //     let mess = null
         //     for(i = 0; i < this.contacts[0].messages.length; i++){
