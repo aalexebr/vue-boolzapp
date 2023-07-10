@@ -189,13 +189,13 @@ Vue.createApp({
     },
     methods:{
         changeChat(i){
-            console.log('couner', this.indexContacts)
+            console.log('counter', this.indexContacts)
             this.indexContacts = i
             this.tempRecievedMessArr = []
             this.createRecievedMessArr()
             this.searchChat = ''
             for(let i=0; i<this.contacts.length; i++){
-                    this.contacts[i].visible = true
+                this.contacts[i].visible = true
             }
         },
         sendMessage(){
@@ -209,6 +209,7 @@ Vue.createApp({
             this.contacts[this.indexContacts].messages.push(newMess)
             this.newChat = ''
             }
+            // this.contactUp()
         },
         responseMessage(){
             setTimeout(()=>{
@@ -223,6 +224,7 @@ Vue.createApp({
                 this.tempRecievedMessArr = []
                 this.createRecievedMessArr()
             }, 1000)
+            this.contactUp()
         },
         searchFunction(){
             
@@ -308,23 +310,22 @@ Vue.createApp({
                 }
             }
         },
-        contactUp(){
-
-        }
-
-        // lastRecivedMessDate(){
-        //     let mess = null
-        //     for(i = 0; i < this.contacts[0].messages.length; i++){
-        //         // let singleMess = this.contacts[0].messages
-        //         // console.log(singleMess)
-        //         if(this.contacts[0].messages[i].status == 'received'){
-        //             mess = this.contacts[0].messages[i]
-                   
-        //         }
-        //     }
-        //     console.log(mess) 
+        contactUp(i,singleContact){
+            let tempContactList = []
+            tempContactList.push(this.contacts[this.indexContacts])
+            console.log('pre for cycle',tempContactList)
+            this.contacts.splice(this.indexContacts,1)
+            console.log('spliced contacts list ',this.contacts)
+            for(let i=0; i<this.contacts.length; i++){
+                tempContactList.push(this.contacts[i])
+                
+            }
+            console.log('post push ',tempContactList)
+            this.contacts = tempContactList
+            console.log('new contacts list ',this.contacts)
+            this.indexContacts  = 0
             
-        // }
+        }
 
     },
     created(){
