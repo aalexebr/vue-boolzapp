@@ -26,6 +26,7 @@
                         <header class="theme-base-header-footer"
                         :class="{'theme-one-header-footer':themes[0].singleThemeFlag,
                                 'theme-two-header-footer':themes[1].singleThemeFlag}">
+
                             <div class="profile row space-between align-center">
                                 <div class="user row align-center">
                                     <div class="profile-pic">                                  
@@ -60,15 +61,10 @@
                                                 v-html="singleTheme.themeIcon">
                                             </div>
                                         </div>
-                                        <!-- <div class="dark-mode row align-center">
-                                            <div class="theme-clicker"></div>
-                                        </div>
-                                        <div class="light-mode row align-center">
-                                            <div class="theme-clicker"></div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
+
                             <div class="notification row align-center theme-base-notification"
                                 :class="{'theme-one-notification':themes[0].singleThemeFlag,
                                         'theme-two-notification':themes[1].singleThemeFlag}">
@@ -84,6 +80,7 @@
                                     </a>
                                 </div>
                             </div>
+
                             <div class="search-bar">
                                 <input @keyup="searchFunction()"
                                 v-model="searchChat" type="text" placeholder="search in chat list">
@@ -99,7 +96,7 @@
                                 @click="changeChat(index)"
                                 :class="{'display-none': element.visible== false,
                                         'active': index == indexContacts}">
-                                    <div class="row align-center">
+                                    <div class="row align-center pos-relative">
                                         <div class="profile-pic">
                                             <img :src="element.avatar" alt="">
                                         </div>
@@ -107,8 +104,12 @@
                                             <div class="name">
                                                 {{element.name}}
                                             </div>
-                                            <div class="last-sent-mess">
-                                                {{element.messages[element.messages.length-1].message.substr(0,15)}}
+                                            <div v-if="element.messages.length > 0"
+                                                class="last-sent-mess">
+                                                <!-- <span v-if="element.messages[element.messages.length]>0"> -->
+                                                    {{element.messages[element.messages.length-1].message.substr(0,15)}}
+                                                <!-- </span> -->
+                                                
                                                 <span v-if="element.messages[element.messages.length-1].message.length>10">...</span>
                                             </div>
                                         </div>
@@ -116,6 +117,10 @@
                                             {{element.messages[element.messages.length-1].date.substr(0,10)}}
                                             <!-- {{element.messages[element.messages.length-1].date.substr(11,5)}} -->
                                         </div>
+                                        <!-- <div v-if="contacts[index].newMessageCounter>0"
+                                            class="new-mess-notification">
+                                            +{{contacts[index].newMessageCounter}}
+                                        </div> -->
                                     </div>
                                 </li>
                             </ul>
@@ -139,7 +144,7 @@
                                         <p>
                                             {{contacts[indexContacts].name}}
                                         </p>
-                                        <span v-if="contacts[indexContacts].messages.length > 0"class="last-seen">
+                                        <span class="last-seen">
                                             <span v-if="tempRecievedMessArr.length>0">
                                                 last seen: 
                                                 {{tempRecievedMessArr[tempRecievedMessArr.length-1].date.substr(10,6)}}  
@@ -162,30 +167,32 @@
                             :class="{'theme-one-background':themes[0].singleThemeFlag,
                                     'theme-two-background':themes[1].singleThemeFlag}">
                             <ul class="column">
-                                <li v-for="(element,index) in contacts[indexContacts].messages"
-                                :class="{'sent theme-base-sent':(element.status == 'sent'),
-                                        'received theme-base-received':element.status == 'received',
-                                        'theme-one-sent':(element.status == 'sent')&&(themes[0].singleThemeFlag),
-                                        'theme-one-received':(element.status == 'received')&&(themes[0].singleThemeFlag),
-                                        'theme-two-sent':(element.status == 'sent')&&(themes[1].singleThemeFlag),
-                                        'theme-two-received':(element.status == 'received')&&(themes[1].singleThemeFlag)}">
-                                    <div class="chat-text">
-                                       {{element.message}}
-                                       <div class="date-of-mess">
-                                            {{element.date.substr(11,5)}} 
-                                       </div>
-                                    </div>
-                                    <div class="message-option-button"
-                                        @click="openMessageOptions(index)"
-                                        :class="{'display': (flag) && (messageIndex == index)}">
-                                        <i class="fa-solid fa-chevron-down"></i>
-                                    </div>  
-                                    <div class="message-options"
-                                        :class="{'display': (flag) && (messageIndex == index)}"
-                                        @click.stop="deleteMessage()">
-                                        Delete 
-                                    </div>    
-                                </li>
+                                <template v-if="contacts[indexContacts].messages.length>0">
+                                    <li v-for="(element,index) in contacts[indexContacts].messages"
+                                    :class="{'sent theme-base-sent':(element.status == 'sent'),
+                                            'received theme-base-received':element.status == 'received',
+                                            'theme-one-sent':(element.status == 'sent')&&(themes[0].singleThemeFlag),
+                                            'theme-one-received':(element.status == 'received')&&(themes[0].singleThemeFlag),
+                                            'theme-two-sent':(element.status == 'sent')&&(themes[1].singleThemeFlag),
+                                            'theme-two-received':(element.status == 'received')&&(themes[1].singleThemeFlag)}">
+                                        <div class="chat-text">
+                                        {{element.message}}
+                                        <div class="date-of-mess">
+                                                {{element.date.substr(11,5)}} 
+                                        </div>
+                                        </div>
+                                        <div class="message-option-button"
+                                            @click="openMessageOptions(index)"
+                                            :class="{'display': (flag) && (messageIndex == index)}">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </div>  
+                                        <div class="message-options"
+                                            :class="{'display': (flag) && (messageIndex == index)}"
+                                            @click.stop="deleteMessage()">
+                                            Delete 
+                                        </div>    
+                                    </li>
+                                </template>
                             </ul>
                         </div>
 
@@ -196,12 +203,9 @@
                                 <div class="emoji">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
-                                <input v-model="newChat" @keyup.enter="sendMessage();responseMessage()"
+                                <input v-model="newChat" @keyup.enter="sendMessage();"
                                     type="text" placeholder="type to chat">
-                                <div class="send" @click="sendMessage();responseMessage()">
-                                    <!-- <button @click="sendMessage();responseMessage()">
-                                        send
-                                    </button> -->
+                                <div class="send" @click="sendMessage();">
                                     <i class="fa-solid fa-paper-plane"></i>
                                 </div>
                             </div>

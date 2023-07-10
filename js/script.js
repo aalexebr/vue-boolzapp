@@ -2,6 +2,7 @@
 Vue.createApp({
     data(){
         return{
+            prevIndex : [],
             themes : [
                 {
                     singleThemeFlag: false,
@@ -43,6 +44,7 @@ Vue.createApp({
                             status: 'received'
                             }
                     ],
+                    newMessageCounter: 0
                 },
                 {
                     name: 'Fabio',
@@ -65,6 +67,7 @@ Vue.createApp({
                             status: 'sent'
                             }
                     ],
+                    newMessageCounter: 0
                 },
                 {
                     name: 'Samuele',
@@ -87,6 +90,7 @@ Vue.createApp({
                         status: 'received'
                         }
                     ],
+                    newMessageCounter: 0,
                 },
                 {
                     name: 'Alessandro B.',
@@ -104,6 +108,7 @@ Vue.createApp({
                         status: 'received'
                         }
                     ],
+                    newMessageCounter: 0
                 },
                 {
                     name: 'Alessandro L.',
@@ -121,6 +126,7 @@ Vue.createApp({
                         status: 'received'
                         }
                     ],
+                    newMessageCounter: 0
                 },
                 {
                     name: 'Claudia',
@@ -143,6 +149,7 @@ Vue.createApp({
                         status: 'sent'
                         }
                     ],
+                    newMessageCounter: 0
                 },
                 {
                     name: 'Federico',
@@ -160,6 +167,7 @@ Vue.createApp({
                         status: 'received'
                         }
                     ],
+                    newMessageCounter: 0
                 },
                 {
                     name: 'Davide',
@@ -180,8 +188,9 @@ Vue.createApp({
                         date: '10/01/2020 15:51:00',
                         message: 'OK!!',
                         status: 'received'
-                        }
+                        }                      
                     ],
+                    newMessageCounter: 0
                 }
             ]
             
@@ -189,7 +198,7 @@ Vue.createApp({
     },
     methods:{
         changeChat(i){
-            console.log('counter', this.indexContacts)
+            // console.log('counter', this.indexContacts)
             this.indexContacts = i
             this.tempRecievedMessArr = []
             this.createRecievedMessArr()
@@ -197,6 +206,10 @@ Vue.createApp({
             for(let i=0; i<this.contacts.length; i++){
                 this.contacts[i].visible = true
             }
+            // new funciont
+            // this.contacts[this.indexContacts].newMessageCounter=0
+            // this.prevIndex.push(this.indexContacts)
+            // console.log(this.prevIndex)
         },
         sendMessage(){
             this.getDate()
@@ -210,26 +223,42 @@ Vue.createApp({
             this.newChat = ''
             }
             this.contactUp()
+            setTimeout(this.responseMessTwo,2000)
         },
-        responseMessage(){
-            setTimeout(()=>{
-                this.getDate()
-                const newMess = {
-                    date: this.currentTimeandDate,
-                    message: this.responseMess,
-                    status: 'received'
-                } 
-                this.indexContacts
-                this.contacts[this.indexContacts].messages.push(newMess)
-                this.tempRecievedMessArr = []
-                this.createRecievedMessArr()
-            }, 1000)
-            // this.contactUp()
+        // responseMessage(){
+        //     setTimeout(()=>{
+        //         this.getDate()
+        //         const newMess = {
+        //             date: this.currentTimeandDate,
+        //             message: this.responseMess,
+        //             status: 'received'
+        //         } 
+        //         this.contacts[this.indexContacts].messages.push(newMess)
+        //         this.tempRecievedMessArr = []
+        //         this.createRecievedMessArr()
+        //     }, 1000)
+        //     // this.contactUp()
+        // },
+        responseMessTwo(){
+            this.getDate()
+            const newMess = {
+                date: this.currentTimeandDate,
+                message: this.responseMess,
+                status: 'received'
+            } 
+            this.contacts[this.indexContacts].messages.push(newMess)
+            this.tempRecievedMessArr = []
+            this.createRecievedMessArr()
+            this.contactUp()
+            // new
+    
+            // this.prevIndex.push(this.indexContacts)
+            // // this.contacts[this.prevIndex].newMessageCounter++
+            // console.log(this.prevIndex)
         },
         searchFunction(){
             
             for(let i=0; i<this.contacts.length; i++){
-                // this.contacts[i].name.includes(this.searchChat)
                 if(!this.contacts[i].name.toLowerCase().includes(this.searchChat.toLowerCase())){
                     this.contacts[i].visible = false
                 }
@@ -273,11 +302,8 @@ Vue.createApp({
             
         },
         openMessageOptions(i){
-            // console.log(this.flag)
             this.flag = !this.flag
-            // console.log(this.flag)
             this.messageIndex = i
-            console.log(this.messageIndex)
         },
         deleteMessage(){
             this.contacts[this.indexContacts].messages.splice(this.messageIndex,1)
@@ -310,22 +336,22 @@ Vue.createApp({
                 }
             }
         },
-        contactUp(){
-            let tempContactList = []
-            tempContactList.push(this.contacts[this.indexContacts])
-            // console.log('pre for cycle',tempContactList)
-            this.contacts.splice(this.indexContacts,1)
-            // console.log('spliced contacts list ',this.contacts)
-            for(let i=0; i<this.contacts.length; i++){
-                tempContactList.push(this.contacts[i])
+        // contactUp(){
+        //     let tempContactList = []
+        //     tempContactList.push(this.contacts[this.indexContacts])
+        //     // console.log('pre for cycle',tempContactList)
+        //     this.contacts.splice(this.indexContacts,1)
+        //     // console.log('spliced contacts list ',this.contacts)
+        //     for(let i=0; i<this.contacts.length; i++){
+        //         tempContactList.push(this.contacts[i])
                 
-            }
-            // console.log('post push ',tempContactList)
-            this.contacts = tempContactList
-            // console.log('new contacts list ',this.contacts)
-            this.indexContacts  = 0
+        //     }
+        //     // console.log('post push ',tempContactList)
+        //     this.contacts = tempContactList
+        //     // console.log('new contacts list ',this.contacts)
+        //     this.indexContacts  = 0
             
-        }
+        // }
 
     },
     created(){

@@ -153,8 +153,20 @@ body{
 .active{
     background-color: rgba(0, 0, 0, 0.233);
 }
-
-
+.new-mess-notification{
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    line-height: 18px;
+    background-color: rgb(110, 27, 27);
+    right: 10px;
+    top: 50%;
+    transform: translate(-50%);
+    border-radius: 10px;
+    color: aliceblue;
+    text-align: center;
+    font-size: 0.45rem;
+}
 
 /* ----------- */
 /* OPEN CHAT AREA */
