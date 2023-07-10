@@ -19,7 +19,7 @@ Vue.createApp({
             flag: false,
             currentTimeandDate : '',
             newChat : '',
-            responseMess :'ok',
+            responseMessText :'ok',
             indexContacts: 0,
             searchChat : '',
             contacts: [
@@ -239,7 +239,7 @@ Vue.createApp({
             this.getDate()
             const newMess = {
                 date: this.currentTimeandDate,
-                message: this.responseMess,
+                message: this.responseMessText,
                 status: 'received'
             } 
             this.contacts[this.indexContacts].messages.push(newMess)
@@ -337,7 +337,7 @@ Vue.createApp({
             this.indexContacts  = 0
             
         },
-        // recievedMessArray is useless from now on
+        // BUGGED FUNCTIONS BELOW
         // random message generator
         randomNumber(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -364,13 +364,13 @@ Vue.createApp({
             }
             this.contacts = tempContactList
             this.indexContacts  = x
-            
+            console.log(this.indexContacts)
         }
 
     },
     created(){
         this.createRecievedMessArr()
-        setTimeout(this.randomMessage,6000)
+        // setInterval(this.randomMessage,6000)
     }
 }).mount('#app');
 
