@@ -28,13 +28,11 @@ img{
     align-self: center;
     height: 40px;
     width: 40px;
-    /* background-color: rgb(230, 194, 173); */
 }
 
 
 /* body */
 body{
-    /* color: var(--main-text-color); */
     background: rgb(0,150,136);
     background: linear-gradient(180deg, rgba(0,150,136,1) 23%, rgba(213,219,214,1) 23%);
 }

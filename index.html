@@ -106,16 +106,14 @@
                                             </div>
                                             <div v-if="element.messages.length > 0"
                                                 class="last-sent-mess">
-                                                <!-- <span v-if="element.messages[element.messages.length]>0"> -->
                                                     {{element.messages[element.messages.length-1].message.substr(0,15)}}
-                                                <!-- </span> -->
-                                                
-                                                <span v-if="element.messages[element.messages.length-1].message.length>10">...</span>
+                                                <span v-if="element.messages[element.messages.length-1].message.length>10">
+                                                    ...
+                                                </span>
                                             </div>
                                         </div>
                                         <div v-if="element.messages.length > 0" class="last-seen ">
                                             {{element.messages[element.messages.length-1].date.substr(0,10)}}
-                                            <!-- {{element.messages[element.messages.length-1].date.substr(11,5)}} -->
                                         </div>
                                         <!-- <div v-if="contacts[index].newMessageCounter>0"
                                             class="new-mess-notification">

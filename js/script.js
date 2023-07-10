@@ -198,7 +198,6 @@ Vue.createApp({
     },
     methods:{
         changeChat(i){
-            // console.log('counter', this.indexContacts)
             this.indexContacts = i
             this.tempRecievedMessArr = []
             this.createRecievedMessArr()
@@ -206,10 +205,6 @@ Vue.createApp({
             for(let i=0; i<this.contacts.length; i++){
                 this.contacts[i].visible = true
             }
-            // new funciont
-            // this.contacts[this.indexContacts].newMessageCounter=0
-            // this.prevIndex.push(this.indexContacts)
-            // console.log(this.prevIndex)
         },
         sendMessage(){
             this.getDate()
@@ -223,7 +218,7 @@ Vue.createApp({
             this.newChat = ''
             }
             this.contactUp()
-            setTimeout(this.responseMessTwo,2000)
+            setTimeout(this.responseMess,1000)
         },
         // responseMessage(){
         //     setTimeout(()=>{
@@ -239,7 +234,7 @@ Vue.createApp({
         //     }, 1000)
         //     // this.contactUp()
         // },
-        responseMessTwo(){
+        responseMess(){
             this.getDate()
             const newMess = {
                 date: this.currentTimeandDate,
@@ -250,11 +245,7 @@ Vue.createApp({
             this.tempRecievedMessArr = []
             this.createRecievedMessArr()
             this.contactUp()
-            // new
-    
-            // this.prevIndex.push(this.indexContacts)
-            // // this.contacts[this.prevIndex].newMessageCounter++
-            // console.log(this.prevIndex)
+
         },
         searchFunction(){
             
@@ -308,9 +299,6 @@ Vue.createApp({
         deleteMessage(){
             this.contacts[this.indexContacts].messages.splice(this.messageIndex,1)
             this.flag = !this.flag
-            if(this.tempRecievedMessArr.length == 0){
-
-            }
         },
         createRecievedMessArr(){
             for(let i = 0; i < this.contacts[this.indexContacts].messages.length; i++){
@@ -336,22 +324,22 @@ Vue.createApp({
                 }
             }
         },
-        // contactUp(){
-        //     let tempContactList = []
-        //     tempContactList.push(this.contacts[this.indexContacts])
-        //     // console.log('pre for cycle',tempContactList)
-        //     this.contacts.splice(this.indexContacts,1)
-        //     // console.log('spliced contacts list ',this.contacts)
-        //     for(let i=0; i<this.contacts.length; i++){
-        //         tempContactList.push(this.contacts[i])
+        contactUp(){
+            let tempContactList = []
+            tempContactList.push(this.contacts[this.indexContacts])
+            // console.log('pre for cycle',tempContactList)
+            this.contacts.splice(this.indexContacts,1)
+            // console.log('spliced contacts list ',this.contacts)
+            for(let i=0; i<this.contacts.length; i++){
+                tempContactList.push(this.contacts[i])
                 
-        //     }
-        //     // console.log('post push ',tempContactList)
-        //     this.contacts = tempContactList
-        //     // console.log('new contacts list ',this.contacts)
-        //     this.indexContacts  = 0
+            }
+            // console.log('post push ',tempContactList)
+            this.contacts = tempContactList
+            // console.log('new contacts list ',this.contacts)
+            this.indexContacts  = 0
             
-        // }
+        }
 
     },
     created(){
