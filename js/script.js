@@ -346,10 +346,10 @@ Vue.createApp({
             this.getDate()
             const newMess = {
                 date: this.currentTimeandDate,
-                message: this.responseMess,
+                message: 'RANDOM MESSAGE',
                 status: 'received'
             } 
-            let n = this.randomNumber(1,this.contacts.length)
+            let n = this.randomNumber(1,this.contacts.length-1)
             this.contacts[n].messages.push(newMess)
             this.contacts[n].newMessageCounter++
             this.contactUpGeneric(n)
@@ -370,7 +370,7 @@ Vue.createApp({
     },
     created(){
         this.createRecievedMessArr()
-        setTimeout(this.randomMessage,3000)
+        setTimeout(this.randomMessage,6000)
     }
 }).mount('#app');
 
