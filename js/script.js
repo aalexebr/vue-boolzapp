@@ -205,6 +205,7 @@ Vue.createApp({
             for(let i=0; i<this.contacts.length; i++){
                 this.contacts[i].visible = true
             }
+            this.contacts[this.indexContacts].newMessageCounter=0
         },
         sendMessage(){
             this.getDate()
@@ -218,7 +219,7 @@ Vue.createApp({
             this.newChat = ''
             }
             this.contactUp()
-            setTimeout(this.responseMess,1000)
+            setTimeout(this.responseMessFunction,1000)
         },
         // responseMessage(){
         //     setTimeout(()=>{
@@ -234,7 +235,7 @@ Vue.createApp({
         //     }, 1000)
         //     // this.contactUp()
         // },
-        responseMess(){
+        responseMessFunction(){
             this.getDate()
             const newMess = {
                 date: this.currentTimeandDate,
@@ -327,23 +328,49 @@ Vue.createApp({
         contactUp(){
             let tempContactList = []
             tempContactList.push(this.contacts[this.indexContacts])
-            // console.log('pre for cycle',tempContactList)
             this.contacts.splice(this.indexContacts,1)
-            // console.log('spliced contacts list ',this.contacts)
             for(let i=0; i<this.contacts.length; i++){
                 tempContactList.push(this.contacts[i])
                 
             }
-            // console.log('post push ',tempContactList)
             this.contacts = tempContactList
-            // console.log('new contacts list ',this.contacts)
             this.indexContacts  = 0
+            
+        },
+        // recievedMessArray is useless from now on
+        // random message generator
+        randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        },
+        randomMessage(){
+            this.getDate()
+            const newMess = {
+                date: this.currentTimeandDate,
+                message: this.responseMess,
+                status: 'received'
+            } 
+            let n = this.randomNumber(1,this.contacts.length)
+            this.contacts[n].messages.push(newMess)
+            this.contacts[n].newMessageCounter++
+            this.contactUpGeneric(n)
+        },
+        contactUpGeneric(x){
+            let tempContactList = []
+            tempContactList.push(this.contacts[x])
+            this.contacts.splice(x,1)
+            for(let i=0; i<this.contacts.length; i++){
+                tempContactList.push(this.contacts[i])
+                
+            }
+            this.contacts = tempContactList
+            this.indexContacts  = x
             
         }
 
     },
     created(){
         this.createRecievedMessArr()
+        setTimeout(this.randomMessage,3000)
     }
 }).mount('#app');
 
