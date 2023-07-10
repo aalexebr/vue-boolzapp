@@ -207,6 +207,9 @@ img{
     font-size: 0.65rem;
     align-self: flex-start;
 }
+.active{
+    background-color: rgba(0, 0, 0, 0.233);
+}
 /* .display-none{
     display: none;
 } */

@@ -97,7 +97,8 @@
                             <ul>
                                 <li v-for="(element, index) in contacts"
                                 @click="changeChat(index)"
-                                :class="{'display-none': element.visible== false}">
+                                :class="{'display-none': element.visible== false,
+                                        'active': index == indexContacts}">
                                     <div class="row align-center">
                                         <div class="profile-pic">
                                             <img :src="element.avatar" alt="">

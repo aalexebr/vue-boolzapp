@@ -209,7 +209,7 @@ Vue.createApp({
             this.contacts[this.indexContacts].messages.push(newMess)
             this.newChat = ''
             }
-            // this.contactUp()
+            this.contactUp()
         },
         responseMessage(){
             setTimeout(()=>{
@@ -224,7 +224,7 @@ Vue.createApp({
                 this.tempRecievedMessArr = []
                 this.createRecievedMessArr()
             }, 1000)
-            this.contactUp()
+            // this.contactUp()
         },
         searchFunction(){
             
