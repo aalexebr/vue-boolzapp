@@ -193,6 +193,10 @@ Vue.createApp({
             this.indexContacts = i
             this.tempRecievedMessArr = []
             this.createRecievedMessArr()
+            this.searchChat = ''
+            for(let i=0; i<this.contacts.length; i++){
+                    this.contacts[i].visible = true
+            }
         },
         sendMessage(){
             this.getDate()
@@ -223,7 +227,7 @@ Vue.createApp({
         searchFunction(){
             
             for(let i=0; i<this.contacts.length; i++){
-                this.contacts[i].name.includes(this.searchChat)
+                // this.contacts[i].name.includes(this.searchChat)
                 if(!this.contacts[i].name.toLowerCase().includes(this.searchChat.toLowerCase())){
                     this.contacts[i].visible = false
                 }

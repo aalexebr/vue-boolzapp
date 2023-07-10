@@ -78,7 +78,7 @@ img{
 }
 
 
-/* USER COLUMN */
+/* ASIDE*/
 /* user profile */
 /* .col-3 header{
     background-color: var(--header-aside);
@@ -315,9 +315,9 @@ main header .chat-functions i{
 .open-chat-area li:hover .message-option-button{
     display: block;
 }
-.display{
+/* .display{
     display: block;
-}
+} */
 /* chatarea footer */
 .chat-type-area{
     padding: 1px;
