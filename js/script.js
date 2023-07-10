@@ -310,19 +310,19 @@ Vue.createApp({
                 }
             }
         },
-        contactUp(i,singleContact){
+        contactUp(){
             let tempContactList = []
             tempContactList.push(this.contacts[this.indexContacts])
-            console.log('pre for cycle',tempContactList)
+            // console.log('pre for cycle',tempContactList)
             this.contacts.splice(this.indexContacts,1)
-            console.log('spliced contacts list ',this.contacts)
+            // console.log('spliced contacts list ',this.contacts)
             for(let i=0; i<this.contacts.length; i++){
                 tempContactList.push(this.contacts[i])
                 
             }
-            console.log('post push ',tempContactList)
+            // console.log('post push ',tempContactList)
             this.contacts = tempContactList
-            console.log('new contacts list ',this.contacts)
+            // console.log('new contacts list ',this.contacts)
             this.indexContacts  = 0
             
         }
@@ -330,7 +330,6 @@ Vue.createApp({
     },
     created(){
         this.createRecievedMessArr()
-        // this.lastRecivedMessDate()
     }
 }).mount('#app');
 
